@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLS Elimination Demonstration</title>
+    <style>
+        .content {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <h1>Cumulative Layout Shift Elimination Demonstration</h1>
+    <p>Below is an image with specified dimensions. Even before it loads, the browser knows how much space to allocate for it, preventing layout shifts.</p>
+    
+    <!-- Image with width and height attributes -->
+    <img src="https://via.placeholder.com/600x400" alt="Placeholder Image" width="600" height="400">
+    
+    <p>This paragraph no longer gets pushed down unexpectedly when the image above loads, as the space for the image is already reserved.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLS Demonstration</title>
+    <style>
+        .content {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <h1>Cumulative Layout Shift Demonstration</h1>
+    <p>Below is an image without specified dimensions. When it loads, it will push the content below it, causing a layout shift.</p>
+    
+    <!-- Image without width and height attributes -->
+    <img src="https://via.placeholder.com/600x400" alt="Placeholder Image">
+    
+    <p>This paragraph gets pushed down when the image above loads, causing a layout shift.</p>
+</div>
+
+</body>
+</html>

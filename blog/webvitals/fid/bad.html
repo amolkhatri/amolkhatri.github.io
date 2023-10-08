@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FID Improvement Demonstration</title>
+</head>
+<body>
+
+<h1>FID Improvement by Offloading JavaScript</h1>
+
+<button id="testButton">Click Me!</button>
+
+<p id="output">Waiting for button click...</p>
+
+<script>
+    // Create a Web Worker
+    const worker = new Worker('worker.js');
+
+    worker.onmessage = function(event) {
+        if (event.data === 'done') {
+            document.getElementById('output').textContent = 'Button click processed!';
+        }
+    };
+
+    document.getElementById('testButton').addEventListener('click', function() {
+        document.getElementById('output').textContent = 'Button clicked! Processing...';
+        
+        // Offload the long-running task to the Web Worker
+        worker.postMessage('startTask');
+    });
+</script>
+
+</body>
+</html>

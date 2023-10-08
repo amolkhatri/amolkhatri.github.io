@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCP Delay Demonstration</title>
+    <script>
+        // Simulate a long-running render-blocking JavaScript in the head
+        for (let i = 0; i < 2000000000; i++) {}
+    </script>
+</head>
+<body>
+
+<h1>FCP Delay Due to Render-Blocking JavaScript</h1>
+
+<p>This text will take time to appear due to the render-blocking JavaScript.</p>
+
+</body>
+</html>

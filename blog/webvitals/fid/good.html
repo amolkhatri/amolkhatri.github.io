@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FID Exaggerated Delay Demonstration</title>
+</head>
+<body>
+
+<h1>FID Exaggerated Delay Due to JavaScript Execution</h1>
+
+<button id="testButton">Click Me!</button>
+
+<p id="output">Waiting for button click...</p>
+
+<script>
+    document.getElementById('testButton').addEventListener('click', function() {
+        document.getElementById('output').textContent = 'Button clicked! Processing...';
+        
+        // Exaggerated long-running JavaScript task on button click
+        for (let i = 0; i < 3000000000; i++) {}
+        
+        document.getElementById('output').textContent = 'Button click processed!';
+    });
+
+    // Start the long-running task shortly after page load, allowing the page to render first
+    setTimeout(function() {
+        for (let i = 0; i < 2000000000; i++) {}
+    }, 100);  // Start after a short delay
+</script>
+
+</body>
+</html>
