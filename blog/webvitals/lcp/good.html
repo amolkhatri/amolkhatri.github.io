@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LCP Delay Demonstration</title>
+    <title>LCP Improvement Demonstration</title>
+    <link rel="preload" href="https://via.placeholder.com/600x400" as="image">
 </head>
 <body>
 
-<h1>LCP Delay Due to JavaScript Execution</h1>
+<h1>LCP Improvement by Optimizing JavaScript</h1>
 
 <div id="imageContainer"></div>
 
 <script>
-    window.onload = function() {
-        // Simulate a delay due to some JavaScript processing
-        for (let i = 0; i < 1000000000; i++) {}
+    // Append the preloaded image to the DOM immediately
+    const img = new Image();
+    img.src = "https://via.placeholder.com/600x400";
+    document.getElementById('imageContainer').appendChild(img);
 
-        // Dynamically add the image to the DOM
-        const img = new Image();
-        img.src = "https://via.placeholder.com/600x400";
-        document.getElementById('imageContainer').appendChild(img);
+    // Other JavaScript processing can continue without delaying LCP
+    window.onload = function() {
+        for (let i = 0; i < 100000000; i++) {}
     }
 </script>
 
